@@ -1,9 +1,12 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
-</head>
-<body>
+<?php include 'template-parts/header.php'; ?>
 <h1>Contact Us</h1>
-</body>
-</html>
+
+<h4>Submit your msg</h4>
+
+<form method="POST" action="submit-msg">
+    <label for="name">Name</label>
+    <input id="name" name="name">
+    <button type="submit">Submit</button>
+</form>
+
+<?php include 'template-parts/footer.php'; ?>
