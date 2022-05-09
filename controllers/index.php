@@ -1,9 +1,10 @@
 <?php
 
-
-//$insert = $app['database']->insert('todos', ['description', 'completed'], ['new task', 0]);
-
-$tasks = $app['database']->selectAll('todos');
+try {
+    $tasks = App::get('database')->selectAll('todos');
+} catch (Exception $e) {
+    return $e->getMessage();
+}
 
 
 require 'views/index.view.php';
