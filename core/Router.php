@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Core;
+
+use Exception;
+
 class Router {
     protected array $routes = [
         'GET' => [],
@@ -24,6 +28,9 @@ class Router {
         $this->routes['POST'][$uri] = $controller;
     }
 
+    /**
+     * @throws Exception
+     */
     public function direct($uri, $requestType) {
         if(array_key_exists($uri, $this->routes[$requestType])) {
             return $this->callAction(
@@ -38,6 +45,9 @@ class Router {
      * @throws Exception
      */
     public function callAction($controller, $action) {
+        $controller = "App\\Controllers\\{$controller}";
+
+
         $controller = new $controller;
 
         if(!method_exists($controller, $action)) {

@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Controllers;
+use App\Core\App;
+use Exception;
+
 class PagesController {
     public function home() {
         try {
